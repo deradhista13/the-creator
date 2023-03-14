@@ -11,9 +11,6 @@ interface CardProps {
 
 const Cardprofile: FC<CardProps> = ({ id, name, username, onClickFav }) => {
   const navigate = useNavigate();
-  function onClickDetail() {
-    navigate(`/creator/${id}`);
-  }
 
   return (
     <div className="card w-64 bg-base-100 shadow-xl rounded-none">
@@ -29,7 +26,7 @@ const Cardprofile: FC<CardProps> = ({ id, name, username, onClickFav }) => {
         <div className="card-actions justify-end m-3">
           <button
             className="btn btn-square btn-sm"
-            onClick={() => onClickDetail()}
+            onClick={() => navigate("/detail_profil")}
           >
             <FiArrowUpRight />
           </button>

@@ -1,21 +1,21 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="navbar bg-base-100 border-b-2 px-10">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl font-bold">
+        <Link to={"/"} className="btn btn-ghost normal-case text-xl font-bold">
           The Creator.
-        </a>
+        </Link>
       </div>
 
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>List Of Creator</a>
+            <Link to={"/"}>List Of Creator</Link>
           </li>
           <li>
-            <a>Favorite</a>
+            <Link to={"/favorite"}>Favorite</Link>
           </li>
         </ul>
       </div>
