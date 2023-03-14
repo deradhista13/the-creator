@@ -13,7 +13,7 @@ const favorite = () => {
   }, []);
 
   function fetchData() {
-    const getFavorite = localStorage.getItem("FavoriteCreator");
+    const getFavorite = localStorage.getItem("AddFavorite");
     if (getFavorite) {
       setCreator(JSON.parse(getFavorite));
     }
