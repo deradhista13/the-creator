@@ -1,24 +1,39 @@
-import React from "react";
+import { FC } from "react";
 import { FiArrowUpRight, FiStar } from "react-icons/fi";
+import { useNavigate } from "react-router";
 
-const Cardprofile = () => {
+interface CardProps {
+  name?: string;
+  username?: string;
+  id?: number;
+  onClickFav?: () => void;
+}
+
+const Cardprofile: FC<CardProps> = ({ id, name, username, onClickFav }) => {
+  const navigate = useNavigate();
+  function onClickDetail() {
+    navigate(`/creator/${id}`);
+  }
+
   return (
     <div className="card w-64 bg-base-100 shadow-xl rounded-none">
-      <figure className="p-5 rounded-none ">
+      <figure className="p-5 rounded-none">
         <img
           src="https://source.unsplash.com/random/800x800/?person=1"
-          alt="creator"
-          className=""
+          alt={name}
         />
       </figure>
       <div className="px-5">
-        <h2 className="card-title">Serena William</h2>
-        <p>@serenawill</p>
+        <h2 className="card-title text-base">{name}</h2>
+        <p className="italic font-medium">@{username}</p>
         <div className="card-actions justify-end m-3">
-          <button className="btn btn-square btn-sm">
+          <button
+            className="btn btn-square btn-sm"
+            onClick={() => onClickDetail()}
+          >
             <FiArrowUpRight />
           </button>
-          <button className="btn btn-square btn-sm">
+          <button className="btn btn-square btn-sm" onClick={onClickFav}>
             <FiStar />
           </button>
         </div>
